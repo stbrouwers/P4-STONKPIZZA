@@ -1,0 +1,16 @@
+﻿<Window x:Class="StonksPizza.windows.Items.ItemsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StonksPizza.windows.Items"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="ItemsWindow" Height="450" Width="800">
+    <StackPanel>
+        <ListBox MinHeight="300" ItemsSource="{Binding Items}" DisplayMemberPath="ItemNaam" SelectedItem="{Binding SelectedItem}" Background="MintCream" VerticalAlignment="Bottom"/>
+        <Button x:Name="BT_Add" MinHeight="40" Click="BT_Add_Click">Toevoegen</Button>
+        <Button MinHeight="40">Edit</Button>
+        <Button MinHeight="40">Verwijderen</Button>
+    </StackPanel>
+</Window>
