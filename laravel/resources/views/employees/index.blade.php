@@ -10,6 +10,10 @@
 
 @section('content')
 <div class="container items-center">
+    @if ($employees == "")
+        <h1>Er zijn nog geen medewerkers</h1>
+    @endif
+
     @foreach ($employees as $employee)
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-6">

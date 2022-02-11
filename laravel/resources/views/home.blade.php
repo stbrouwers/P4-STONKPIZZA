@@ -18,7 +18,7 @@
             <p class="DBD">ST<img id="titleimg" src="{{ asset('assets/Pizza-icon.png') }}" alt="">NKPIZZA</p>
         </div>
         <div id="homeselect">
-            <div onclick="r('/bestellen')" id="killers" class="homenavbox anim in1">
+            <div onclick="r('/dashboard')" id="killers" class="homenavbox anim in1">
                 <img alt="killicon" src="{{ asset('assets/home.png') }}">
                 <p>BESTELLEN</p>
             </div>
@@ -26,7 +26,7 @@
                 <img alt="survicon" class="fuckedimg" src="{{ asset('assets/list.png') }}">
                 <p>AANBOD</p>
             </div>
-            <div onclick="r('/order')" id="perks" class="homenavbox anim in3">
+            <div onclick="r('/dashboard')" id="perks" class="homenavbox anim in3">
                 <img alt="survicon" class="fuckedimg2" src="{{ asset('assets/deliver.png') }}">
                 <p>ORDER STATUS</p>
             </div>

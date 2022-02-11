@@ -5,22 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <title><?php echo e(config('app.name', 'stonkpizza')); ?></title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="<?php echo e(asset('css/tw.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('css/dash.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
+
+
 
         <!-- Scripts -->
         <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+        <script src="<?php echo e(asset('js/vk.js')); ?>"></script>
+
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             <?php echo e($slot); ?>
 
         </div>
+
     </body>
 </html>
 <?php /**PATH D:\stonkpizza\balls\project4\resources\views/layouts/guest.blade.php ENDPATH**/ ?>

@@ -4,7 +4,8 @@
 @endsection
 
 @section('content')
-<div class="container items-center">
+   
+<div class="container items-center">     
     @foreach ($customers as $customer)
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-6">

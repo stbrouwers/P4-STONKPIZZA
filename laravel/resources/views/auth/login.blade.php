@@ -1,8 +1,12 @@
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/dash.css') }}" rel="stylesheet">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <div class="flexrowdiv">
+                    <p class="logindb">ST</p><img id="loginimg" src="{{ asset('assets/Pizza-icon.png') }}" alt=""><p class="logindb">NKPIZZA</p>
+                </div>
             </a>
         </x-slot>
 
@@ -49,6 +53,9 @@
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}
+                </x-button>
+                <x-button class="ml-3" onclick="r('/register')">
+                    {{ __('register') }}
                 </x-button>
             </div>
         </form>

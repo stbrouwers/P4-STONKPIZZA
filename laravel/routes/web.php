@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/aanbod', function () {
+    return view('aanbod');
+});
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -34,6 +39,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('user', UserController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('customer', CustomerController::class);
+    Route::resource('order', OrderController::class);
 });
 
 

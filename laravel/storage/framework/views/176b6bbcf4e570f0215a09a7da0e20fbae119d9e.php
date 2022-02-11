@@ -1,3 +1,5 @@
+<link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('css/dash.css')); ?>" rel="stylesheet">
 <?php if (isset($component)) { $__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\GuestLayout::class, []); ?>
 <?php $component->withName('guest-layout'); ?>
@@ -12,18 +14,9 @@
 <?php $component->withAttributes([]); ?>
          <?php $__env->slot('logo', null, []); ?> 
             <a href="/">
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-logo','data' => ['class' => 'w-20 h-20 fill-current text-gray-500']]); ?>
-<?php $component->withName('application-logo'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['class' => 'w-20 h-20 fill-current text-gray-500']); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
+                <div class="flexrowdiv">
+                    <p class="logindb">ST</p><img id="loginimg" src="<?php echo e(asset('assets/Pizza-icon.png')); ?>" alt=""><p class="logindb">NKPIZZA</p>
+                </div>
             </a>
          <?php $__env->endSlot(); ?>
 
@@ -139,6 +132,20 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes(['class' => 'ml-3']); ?>
                     <?php echo e(__('Log in')); ?>
+
+                 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.button','data' => ['class' => 'ml-3','onclick' => 'r(\'/register\')']]); ?>
+<?php $component->withName('button'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['class' => 'ml-3','onclick' => 'r(\'/register\')']); ?>
+                    <?php echo e(__('register')); ?>
 
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

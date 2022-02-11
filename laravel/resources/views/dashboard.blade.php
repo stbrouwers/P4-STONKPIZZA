@@ -4,5 +4,5 @@
 @endsection
 
 @section('content')
-    Je bent ingelogd
+    <h1 id="DashTitle">Welkom {{ Auth::user()->name }}!</h1>
 @endsection
