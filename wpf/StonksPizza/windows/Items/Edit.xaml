@@ -1,0 +1,39 @@
+﻿<Window x:Class="StonksPizza.windows.Items.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StonksPizza.windows.Items"
+        mc:Ignorable="d"
+        Title="Edit" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontSize="20">Item Name</TextBlock>
+        <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1" FontSize="20">Item Count</TextBlock>
+        <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2" FontSize="20">Item Price</TextBlock>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding Item}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox BorderThickness="2" BorderBrush="Black" Text="{Binding ItemName}" FontSize="25" VerticalAlignment="Center" TextAlignment="Center"/>
+            <TextBox BorderThickness="2" BorderBrush="Black" Text="{Binding ItemCount}" FontSize="25" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center"/>
+            <TextBox BorderThickness="2" BorderBrush="Black" Text="{Binding ItemPrice}" FontSize="25" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center"/>
+        </Grid>
+        <Button x:Name="BT_Edit" Click="BT_Edit_Click" Grid.Row="3" Height="30" Width="100" HorizontalAlignment="Left" Margin="20,0">Edit</Button>
+        <Button x:Name="BT_Cancel" Click="BT_Cancel_Click" Grid.Row="3" Grid.Column="3" Height="30" Width="50" HorizontalAlignment="Right" Margin="20,0">Cancel</Button>
+    </Grid>
+</Window>

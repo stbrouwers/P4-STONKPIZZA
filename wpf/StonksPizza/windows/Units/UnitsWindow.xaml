@@ -1,0 +1,36 @@
+﻿<Window x:Class="StonksPizza.windows.Units.UnitsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StonksPizza.windows.Units"
+        mc:Ignorable="d"
+        Title="UnitsWindow" Height="450" Width="800">
+    <Grid MinHeight="200">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Unit ID</TextBlock>
+            <TextBlock Margin="10,0,0,0">Unit</TextBlock>
+        </StackPanel>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" Background="MintCream" VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding UnitID}"/>
+                        <TextBlock Text="{Binding Unit}" Margin="10,0,0,0"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="2" x:Name="BT_Add" Click="BT_Add_Click" MinHeight="40">Toevoegen</Button>
+        <Button Grid.Row="3" x:Name="BT_Edit" Click="BT_Edit_Click" MinHeight="40">Edit</Button>
+        <Button Grid.Row="4" x:Name="BT_Delete" Click="BT_Delete_Click" MinHeight="40">Verwijderen</Button>
+    </Grid>
+</Window>
