@@ -15,3 +15,23 @@
     position: absolute;
     display: inline-block;
 }
+
+.bestelbutton {
+    float: right;
+}
+
+.ordercontent {
+    height: 75%;
+    margin-bottom: 3px;
+    border-bottom: 1px dashed gray;
+}
+
+.orderstats {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderform {
+    
+}

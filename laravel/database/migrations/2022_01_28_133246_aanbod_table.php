@@ -18,6 +18,8 @@ class AanbodTable extends Migration
             $table->string('name');
             $table->string('iids');
             $table->double('price');
+            $table->string('imgurl');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class AanbodTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Pizzas');
     }
 }

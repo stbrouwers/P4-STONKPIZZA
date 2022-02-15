@@ -23,12 +23,12 @@
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-    <form method="POST" action="{{ route('order.store') }}">
+    <form class="orderform w-4/6" method="POST" action="{{ route('order.store') }}">
         @csrf
-        <div class="mt-2">
+        <div>
             <select class="form-control" name="pizzas[]" multiple="">
                 @foreach($pizzas as $pizza)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                    <option value="{{ $pizza->id }}">{{ $pizza->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -36,8 +36,24 @@
     </form>
 
     <!-- Current order -->
-    <div class="p-6 bg-gray-100 border-2 border-gray-200 rounded-sm h-96 w-2/6 float-right">
-        
+    <div class="p-6 bg-gray-100 border-2 border-gray-200 rounded-sm h-96 w-2/6 float-right bestelsumcontainer">
+        <div class="ordercontent">
+            
+        </div>
+
+        <div class="orderstats">
+            <div>
+                <p>order contents:</p>
+                <p>order sum:</p>
+            </div>
+
+            <div>
+                <x-button class="ml-3 bestelbutton" onclick="r('/register')">
+                    {{ __('bestellen') }}
+                </x-button>
+            </div>
+        </div>
     </div>
+
 </x-auth-card-app>
 @endsection

@@ -17,7 +17,6 @@ class BestellingenTable extends Migration
         $table->id();
         $table->integer('customer_id');
         $table->string('address');
-        $table->date('created_at');
         $table->string('status');
         $table->jsonb('options');
         /*
@@ -50,6 +49,7 @@ class BestellingenTable extends Migration
             }
         */
         $table->double('totaalprijs');
+        $table->timestamps();
         });
     }
 
@@ -60,6 +60,6 @@ class BestellingenTable extends Migration
      */
     public function down()
     {
-        
+        Schema::dropIfExists('Orders');
     }
 }

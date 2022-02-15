@@ -17,6 +17,7 @@ class IngredientTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('price');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class IngredientTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Ingredients');
     }
 }
