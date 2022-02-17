@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Pizza;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,9 @@ class OrderController extends Controller
     public function create()
     {
         $pizzas = Pizza::all();
-        return view('orders.create', ['pizzas' => $pizzas]);
+        $ingredients = Ingredient::all();
+        $url = \URL::full();
+        return view('orders.create', ['pizzas' => $pizzas, 'ingredients' => $ingredients, 'currurl' => $url]);
     }
 
     /**
@@ -40,7 +43,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order();
+        $order->customer_id = Auth::id();
+        $order->address = 'test adres';
+        $order->status = $request->status;
+        $order->options = $request->options;
+        $order->totaalprijs = $request->totaalprijs;
+        $order->save();
     }
 
     /**

@@ -24,6 +24,8 @@
     height: 75%;
     margin-bottom: 3px;
     border-bottom: 1px dashed gray;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .orderstats {
@@ -33,5 +35,88 @@
 }
 
 .orderform {
+    height: 500px;
+    width: 60%;
+}
+
+.pizzacontainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 105px;
     
+    background-color: rgba(243, 244, 246, 255);
+    border: rgba(229, 231, 235, 255) 2px solid;
+    padding: 5px; 
+    height: 100%;
+}
+
+.pizzaselect {
+    overflow: hidden;
+    background-color: rgb(235, 235, 235);
+    border: rgba(128, 128, 128, 0.7) 1px solid;
+    border-radius: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100px;
+    width: 120px;
+}
+
+.pizzaselect > p {
+    text-align: center;
+}
+
+.imgcontainer {
+    width: 100%;
+    height: 75%;
+}
+
+.imgcontainer > img {
+    height: auto;
+    width: 100%;
+}
+
+.hoverdiv {
+    cursor: pointer;
+    overflow: hidden;
+    height: 0%;
+    width: auto; 
+    text-align: center;
+    display: none;
+    border-bottom: gray 1px dashed;
+}
+
+.pizzasubtab {
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    transition: background-color 0.2s ease-in;
+}
+
+.pizzasubtab:hover {
+    background-color: rgba(184, 184, 184, 0.7);
+}
+
+.pizzaselect:hover .hoverdiv {
+    display: flex;
+    height: auto;
+}
+
+.pizzaselect:hover .plistname {
+    display: none;
+}
+
+.pinfocontainer {
+    height: 111px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sizeselect {
+    float: right;
+}
+
+#structname {
+    width: 50px !important;
 }

@@ -9,5 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = [
+        'id', 'first_name', 'last_name', 'address', 'phone', 'zipcode', 'city', 'pizza_points',
+    ];
 }
