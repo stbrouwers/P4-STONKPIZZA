@@ -52,34 +52,36 @@
     @endforeach
 
     <div class="p-2 bg-gray-100 border-2 border-gray-200 rounded-sm w-2/6 float-right pinfocontainer">
-        <h2 id="structname">test</h2>
-            <input id="pamount" type="number" value="1">
-            <select type="select" class="form-control sizeselect" id="sizeselector" name="sizes[]" multiple="">
+        <h2 id="structname">customize</h2>
+        <div id="structcontent">
+            <input class="structitem" onchange="pricecalc('false')" id="pamount" type="number" value="1">
+            <select type="select" onchange="pricecalc('false')" class="form-control sizeselect structitem" id="sizeselector" name="sizes[]" multiple="">
                 <option value="0.8">medium</option>
-                <option value="1">large</option>
+                <option value="1.0">large</option>
                 <option value="1.2">extra large</option>
             </select>
-            
-            <x-button class="ml-3 bestelbutton" onclick="r('')">
+        </div>
+        <div class="addsection">
+            <p id="itemprice">0,00</p>
+            <x-button class="ml-3 addbtn" onclick="pricecalc('true')">
                 {{ __('toevoegen') }}
             </x-button>
+        </div>
     </div>
 
     <!-- Current order -->
     <form class="" method="POST" action="{{ route('order.store') }}">
-        <div class="p-1 bg-gray-100 border-2 border-gray-200 rounded-sm h-96 w-2/6 float-right bestelsumcontainer">
-            <div class="ordercontent">
-                
-            </div>
-
+        @csrf
+        <x-label for="options" class="hiddeninp" :value="__('options *')" />
+        <x-input id="options" class="hiddeninp" type="text" name="options" :value="old('options')" required autofocus />
+        <x-label for="totaalprijs" class="hiddeninp" :value="__('totaalprijs *')" />
+        <x-input id="totaalprijs" class="hiddeninp" type="text" name="totaalprijs" :value="old('totaalprijs')" required autofocus />
+        <div class="p-1 bg-gray-100 border-2 border-gray-200 rounded-sm h-72 w-2/6 float-right bestelsumcontainer">
+            <div id="ordercontent"></div>
             <div class="orderstats">
                 <div>
-                    <br>
-                    <p>order sum:</p>
-                </div>
-
-                <div>
-                    <x-button class="ml-3 bestelbutton" onclick="r('')">
+                    <p id="totaalprijsp">order sum: &euro;0.00</p>
+                    <x-button class="ml-3 bestelbutton">
                         {{ __('bestellen') }}
                     </x-button>
                 </div>

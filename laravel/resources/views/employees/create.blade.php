@@ -68,7 +68,7 @@
                 </div>
 
                 <div>
-                    <div class=">
+                    <div class="">
                         <x-label for="personal_email" :value="__('Persoonlijke email')" />
 
                         <x-input id="personal_email" class="block mt-1 w-full" type="text" name="personal_email" :value="old('personal_email')" required autofocus />

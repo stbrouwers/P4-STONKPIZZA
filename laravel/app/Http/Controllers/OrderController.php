@@ -46,10 +46,12 @@ class OrderController extends Controller
         $order = new Order();
         $order->customer_id = Auth::id();
         $order->address = 'test adres';
-        $order->status = $request->status;
+        $order->status = 'In de wachtrij';
         $order->options = $request->options;
         $order->totaalprijs = $request->totaalprijs;
         $order->save();
+
+        return redirect()->route('order.index');
     }
 
     /**
