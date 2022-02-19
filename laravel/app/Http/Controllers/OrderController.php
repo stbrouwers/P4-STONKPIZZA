@@ -19,7 +19,10 @@ class OrderController extends Controller
 
     public function index()
     {
-        return view('orders.index');
+        $pizzas = Pizza::all();
+        $ingredients = Ingredient::all();
+        $orders = Order::where('customer_id', Auth::id())->orderBy('created_at', 'DESC')->get();
+        return view('orders.index', ['pizzas' => $pizzas, 'ingredients' => $ingredients, 'orders' => $orders]);
     }
 
     /**
@@ -60,7 +63,7 @@ class OrderController extends Controller
      * @param  \App\Models\Bestellen  $bestellen
      * @return \Illuminate\Http\Response
      */
-    public function show(Bestellen $bestellen)
+    public function show(Order $order)
     {
         //
     }
@@ -71,7 +74,7 @@ class OrderController extends Controller
      * @param  \App\Models\Bestellen  $bestellen
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bestellen $bestellen)
+    public function edit(Order $order)
     {
         //
     }
@@ -83,9 +86,13 @@ class OrderController extends Controller
      * @param  \App\Models\Bestellen  $bestellen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bestellen $bestellen)
+    public function update(Request $request, Order $order)
     {
-        //
+        $data = Order::find($order->id);
+        $data->status = $request->status;
+        $data->save();
+        
+        return redirect()->route('order.index');
     }
 
     /**
@@ -94,7 +101,7 @@ class OrderController extends Controller
      * @param  \App\Models\Bestellen  $bestellen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bestellen $bestellen)
+    public function destroy(Order $order)
     {
         //
     }

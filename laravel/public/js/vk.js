@@ -1,10 +1,17 @@
 var order = [];
-
 var currselected = {};
 var tempitem = {};
+
+var sizeindex = [
+    "medium",
+    "large",
+    "extra large", 
+]
+
 var iteration = 0;
 var sum = 0.00;
-var check = false
+var check = false;
+var previousid = 0;
 
 function r(l) {
     location.href = l;
@@ -20,13 +27,12 @@ function a2struct(item) {
     currselected = item;
     document.getElementById('structname').textContent = item.name;
 
-    console.log(item);
     pricecalc("false") ;
     check = true;
 }
 
 function pricecalc(clicked) { 
-    var amount =  parseInt(document.getElementById('pamount').value);
+    var amount = parseInt(document.getElementById('pamount').value);
     var stringsize = (document.getElementById('sizeselector').value).toString();
     var size = parseFloat(stringsize);
     var price = currselected.price;
@@ -60,45 +66,51 @@ function a2order(amount, size, price) {
     html+= '<p>&euro;'+price+' ('+amount+'x &euro;'+((currselected.price*size).toFixed(2))+')</p></div>';
     document.getElementById("ordercontent").innerHTML += html;
     document.getElementById("totaalprijsp").textContent = "order sum: €" + ilovejs;
-    console.log(order + "it" + iteration);
     document.getElementById('options').value = JSON.stringify(order);
     document.getElementById('totaalprijs').value = ilovejs;
-
 }
 
-function submitorder() {
+function orderDropdown(id, options, pizza) {
+    if(id==previousid){return};
+    var html = "";
+    var order = JSON.parse(options);
+    var pizzas = JSON.parse(pizza);
+    var orderdiv = $("#order-"+id);
+    var orderlist = $("#list-"+id);
+    var anubtn = $('.status');
+    var orderdestroy = 0;
+    if($("#destroyform-"+id).length){var orderdestroy = $("#destroyform-"+id);}
+    
+    if(previousid!=0) {
+        var previousdiv = $("#order-"+previousid);
+        var previouslist = $("#list-"+previousid);
 
+        if($("#destroyform-"+previousid).length){
+            $("#destroyform-"+previousid).addClass('destroyform-dormant');
+        }
+
+        $(previousdiv).removeClass('expand');
+        $(previousdiv).addClass('collapse');
+        $(previouslist).html(html);
+    }
+
+    if($(orderdestroy).hasClass('destroyform-dormant') && orderdestroy != 0){
+        $(orderdestroy).removeClass('destroyform-dormant');
+    }
+    previousid = id;
+
+    if($(orderdiv).hasClass('collapse')){$(orderdiv).removeClass('collapse')};
+    $(orderdiv).addClass('expand');
+
+    for(let i in order) {
+        var s = 0;
+        var n = (order[i].item[0].pizzaid)-1;
+        switch(order[i].item.size){case 0.80: s=0; break; case 1.00: s=1; break; case 1.20: s=2; break;};
+    
+        html += '<div class="itemdiv orderitemdiv"><p class="nnmout">'+pizzas[n].name+' x'+order[i].item[0].amount+'</p>';
+        html += '<p>'+sizeindex[s]+'</p>';
+        html += '<p>&euro;'+order[i].item[0].price+' ('+order[i].item[0].amount+'x &euro;'+(((order[i].item[0].price*order[i].item[0].size)/order[i].item[0].amount).toFixed(2))+')</p></div>';
+    }
+    $(orderlist).html(html);
+    $(anubtn).value = "Geannuleerd";
 }
-
-
-
-
-        /*
-            {
-                "order": [{
-                        "pizzaid": 10,
-                        "plusingredients": [1, 12],
-                        "miningredients": [4, 13],
-                        "size": "0.8", 
-                        "price": "9,30";
-                        "amount": 1,
-                    },
-                    {
-                        "pizzaid": "0",
-                        "plusingredients": [1, 12, 16, 71],
-                        "miningredients": [],
-                        "size": "1", 
-                        "price": "5,90";
-                        "amount": 3,
-                    }
-                    {
-                        "pizzaid": "0",
-                        "plusingredients": [1, 12, 16, 71],
-                        "miningredients": [],
-                        "size": "1.2", 
-                        "price": "8";
-                        "amount": 2,
-                    }
-                ]
-            }
-        */

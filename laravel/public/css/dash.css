@@ -18,6 +18,8 @@
 
 .bestelbutton {
     float: right;
+    margin-right: 8px;
+    margin-top: 5px;
 }
 
 #ordercontent {
@@ -177,4 +179,117 @@
 
 .hiddeninp {
     display: none;
+}
+
+.orderhistory {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 550px;
+}
+
+.order {
+    background-color: rgb(206, 206, 206);
+    border: 2px rgb(136, 136, 136) solid;
+    overflow: hidden;
+    margin: 15px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    transition: background-color 0.3s ease;
+    /*height: 92px; */
+}
+
+.order:hover  {
+    background-color: rgb(157, 157, 157);
+    cursor: pointer;
+}
+
+.order > h1 {
+    font-size: 30px;
+}
+
+.rightordergroup, .middleordergroup, .leftordergroup {
+    display: inline;
+}
+
+.rightordergroup {
+    border-left: 2px rgb(136, 136, 136) dashed;
+    padding-left: 10px;
+    width: 15%;
+    position: relative;
+}
+
+.rightordergroup > h1 {
+    font-size: 15px;
+}
+
+.leftordergroup {
+    border-right: 2px rgb(136, 136, 136) dashed;
+    width: 3.5%;
+}
+
+.middleordergroup {
+    width: 81.5%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.orderid {
+    font-size: 18px;
+}
+
+.orderitemdiv {
+    background-color: rgb(177, 177, 177) !important;
+}
+
+.statusdot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    border: rgb(136, 136, 136) solid 2px; 
+    margin-bottom: 13px;
+    font-size: 20px;
+}
+
+.itemlist {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.destroyform {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.destroyform-dormant {
+    display: none;
+}
+
+.expand {
+    animation: dropdown;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    background-color: rgb(206, 206, 206) !important;
+}
+
+.collapse {
+    animation: dropup;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dropdown {
+    0% {height: 92px;}
+    100% {height: 350px;}
+}
+
+@keyframes dropup {
+    0% {height: 350px;}
+    100% {height: 92px;}
 }

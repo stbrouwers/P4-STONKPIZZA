@@ -36,20 +36,8 @@
                         <p class="plistname">{{ $pizza->name }}</p>
                     </div>
                 @endforeach
-                
-                <div class="pizzaselect">
-                    <div class="hoverdiv">
-                        <p class="pizzasubtab" onclick="a2struct({{$pizza}})">+</p>
-                        
-                    </div>
-                    <div class="imgcontainer"><img src="{{$pizza->imgurl}}" alt=""/></div>
-                <p class="plistname">{{ $pizza->name }}</p>
-                </div>
         </div>
     </form>
-    @foreach($ingredients as $ingredient)
-        
-    @endforeach
 
     <div class="p-2 bg-gray-100 border-2 border-gray-200 rounded-sm w-2/6 float-right pinfocontainer">
         <h2 id="structname">customize</h2>
@@ -62,7 +50,7 @@
             </select>
         </div>
         <div class="addsection">
-            <p id="itemprice">0,00</p>
+            <p id="itemprice">0.00</p>
             <x-button class="ml-3 addbtn" onclick="pricecalc('true')">
                 {{ __('toevoegen') }}
             </x-button>
