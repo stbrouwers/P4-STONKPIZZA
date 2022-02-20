@@ -12,6 +12,30 @@
 @endsection
 
 @section('content')
+
+<script>
+    var submitted = false;
+    var userinput = false;
+    
+    $(document).ready(function() {
+    $("form").submit(function() {
+        submitted = true;
+    });
+    
+    $(".hiddeninp").change(function() {
+        userinput = true;
+        console.log('this worked!');
+    });
+    
+    window.onbeforeunload = function () {
+        if (userinput && !submitted) {
+        return 'You do not have submitted the form yet.\
+        Do you really want to leave this page?';
+        }
+    }
+    });
+</script>
+
 <x-auth-card-app>
     <x-slot name="logo">
         <div class="flexrowdiv">
@@ -42,12 +66,12 @@
     <div class="p-2 bg-gray-100 border-2 border-gray-200 rounded-sm w-2/6 float-right pinfocontainer">
         <h2 id="structname">customize</h2>
         <div id="structcontent">
-            <input class="structitem" onchange="pricecalc('false')" id="pamount" type="number" value="1">
-            <select type="select" onchange="pricecalc('false')" class="form-control sizeselect structitem" id="sizeselector" name="sizes[]" multiple="">
-                <option value="0.8">medium</option>
+            <select type="select" onchange="pricecalc('false')" class="form-control sizeselect structitem" id="sizeselector" name="sizes[]">
+                <option value="0.8" selected>medium</option>
                 <option value="1.0">large</option>
                 <option value="1.2">extra large</option>
             </select>
+            <input class="structitem" onchange="pricecalc('false')" id="pamount" type="number" value="1">
         </div>
         <div class="addsection">
             <p id="itemprice">0.00</p>
@@ -76,6 +100,5 @@
             </div>
         </div>
     </form>
-
 </x-auth-card-app>
 @endsection

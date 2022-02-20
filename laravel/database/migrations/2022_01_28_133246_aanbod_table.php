@@ -16,7 +16,7 @@ class AanbodTable extends Migration
         Schema::create('Pizzas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('iids');
+            $table->string('iids')->references('id')->on('ingredients');
             $table->double('price');
             $table->string('imgurl');
             $table->timestamps();

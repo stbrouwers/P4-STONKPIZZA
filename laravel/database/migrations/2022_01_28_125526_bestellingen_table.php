@@ -15,7 +15,7 @@ class BestellingenTable extends Migration
     {
         Schema::create('Orders', function (Blueprint $table) {
         $table->id();
-        $table->integer('customer_id');
+        $table->foreign('customer_id')->references('id')->on('users');
         $table->string('address');
         $table->string('status');
         $table->jsonb('options');

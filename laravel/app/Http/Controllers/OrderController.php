@@ -7,6 +7,7 @@ use App\Models\Pizza;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 class OrderController extends Controller
@@ -46,6 +47,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        Log::channel('UserActivity')->info('New order created by user #'.Auth::id());
+        Log::channel('UserActivity')->info($request);
+
         $order = new Order();
         $order->customer_id = Auth::id();
         $order->address = 'test adres';
@@ -88,6 +92,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
+
+        Log::channel('UserActivity')->info('Order #'.$order->id.' updated by user #'.Auth::id());
+        Log::channel('UserActivity')->info('Order status changed from "'.$order->status.'" to "'.$request->status.'".');
+        Log::channel('UserActivity')->info($request);
+
         $data = Order::find($order->id);
         $data->status = $request->status;
         $data->save();

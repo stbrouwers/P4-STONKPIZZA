@@ -109,7 +109,7 @@
 }
 
 .pinfocontainer {
-    height: 207px;
+    height: 160px;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@
 
 .sizeselect {
     float: right;
-    height: 90px;
+    height: 40px;
 }
 
 #structname {
@@ -125,7 +125,7 @@
 }
 
 #pamount {
-    height: 30px;
+    height: 40px;
     width: 55px;
 }
 
@@ -282,6 +282,10 @@
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-fill-mode: forwards;
+}
+
+.bestelsumcontainer {
+    height: 335px;
 }
 
 @keyframes dropdown {

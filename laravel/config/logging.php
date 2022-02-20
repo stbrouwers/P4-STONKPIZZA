@@ -75,6 +75,12 @@ return [
             'level' => env('LOG_LEVEL', 'critical'),
         ],
 
+        'UserActivity' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/UserActivity.log'),
+            'level' => 'info',
+        ],
+
         'papertrail' => [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
