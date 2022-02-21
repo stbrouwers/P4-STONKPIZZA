@@ -12,7 +12,7 @@ namespace StonksPizza.Models
         public int AccountID
         {
             get { return accountID; }
-            set { accountID = value; OnPropertyChanged(); }
+            set { accountID = value; }
         }
 
         private string volledigenaam;
@@ -26,14 +26,14 @@ namespace StonksPizza.Models
         public string Wachtwoord
         {
             get { return wachtwoord; }
-            set { wachtwoord = value; }
+            set { wachtwoord = value; OnPropertyChanged(); }
         }
 
         private bool ismanager;
         public bool IsManager
         {
             get { return ismanager; }
-            set { ismanager = value; }
+            set { ismanager = value; OnPropertyChanged(); }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace StonksPizza.Models
     {
         MySqlConnection _conn = new MySqlConnection("Server=localhost;Database=stonkpizza;Uid=root;Pwd=;");
 
-        public List<DBunits> GetAllAccounts()
+        public List<DBaccounts> GetAllAccounts()
         {
             List<DBaccounts> result = new List<DBaccounts>();
             try
