@@ -15,41 +15,14 @@ class BestellingenTable extends Migration
     {
         Schema::create('Orders', function (Blueprint $table) {
         $table->id();
-        $table->foreign('customer_id')->references('id')->on('users');
+        $table->unsignedBigInteger('customer_id');
         $table->string('address');
         $table->string('status');
         $table->jsonb('options');
-        /*
-            {
-                "order": [{
-                        "pizzaid": 10,
-                        "plusingredients": [1, 12],
-                        "miningredients": [4, 13],
-                        "size": "0.8", 
-                        "price": "9,30";
-                        "amount": 1,
-                    },
-                    {
-                        "pizzaid": "0",
-                        "plusingredients": [1, 12, 16, 71],
-                        "miningredients": [],
-                        "size": "1", 
-                        "price": "5,90";
-                        "amount": 3,
-                    }
-                    {
-                        "pizzaid": "0",
-                        "plusingredients": [1, 12, 16, 71],
-                        "miningredients": [],
-                        "size": "1.2", 
-                        "price": "8";
-                        "amount": 2,
-                    }
-                ]
-            }
-        */
         $table->double('totaalprijs');
         $table->timestamps();
+
+        $table->foreign('customer_id')->references('id')->on('users')->constrained();;
         });
     }
 
