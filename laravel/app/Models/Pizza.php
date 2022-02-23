@@ -11,4 +11,8 @@ class Pizza extends Model
     protected $fillable = [
         'id', 'name', 'iids','price', 'imgurl',
     ];
+
+    public function ingredients() {
+        return $this->hasMany(Ingredient::class);
+    }
 }

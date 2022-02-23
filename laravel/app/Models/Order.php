@@ -12,4 +12,8 @@ class Order extends Model
     protected $fillable = [
         'id','customer_id','address', 'status', 'options', 'totaalprijs',
     ];
+
+    public function customer() {
+        return $this->hasOne(Customer::class, 'customer_id');
+    }
 }
